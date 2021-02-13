@@ -1,0 +1,21 @@
+digraph G {
+  graph [rankdir = LR];
+  ha_0[ shape=record; style=filled ; color=cadetblue ; label="{ {<a>a|<b>b}| ha_0 | {<s>s|<co>co} }"];
+  ha_1[ shape=record; style=filled ; color=cadetblue ; label="{ {<a>a|<b>b}| ha_1 | {<s>s|<co>co} }"];
+  Or_2[ shape=record; style=filled ; color=cadetblue ; label="{ {<i1>i1|<i2>i2}| Or_2 | {<f>f} }"];
+  a[shape=cds xlabel="a"];
+  b[shape=cds xlabel="b"];
+  ci[shape=cds xlabel="ci"];
+  s[shape=cds xlabel="s"];
+  co[shape=cds xlabel="co"];
+  sig1[shape=point ; xlabel="sig1"]; /* sig */
+  a -> ha_1:a /* pin */
+  b -> ha_0:a /* pin */
+  ci -> ha_0:b /* pin */
+  sig1 -> s [label=""] /* sig */
+  ha_0:s -> ha_1:b[label=""]; /* tag3 */
+  ha_0:co -> Or_2:i2[label=""]; /* tag3 */
+  ha_1:s -> sig1[label=""]; /* tag3 */
+  ha_1:co -> Or_2:i1[label=""]; /* tag3 */
+  Or_2:f -> co[label=""]; /* tag3 */
+}

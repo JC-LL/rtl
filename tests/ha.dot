@@ -1,0 +1,15 @@
+digraph G {
+  graph [rankdir = LR];
+  And_0[ shape=record; style=filled ; color=cadetblue ; label="{ {<i1>i1|<i2>i2}| And_0 | {<f>f} }"];
+  Xor_1[ shape=record; style=filled ; color=cadetblue ; label="{ {<i1>i1|<i2>i2}| Xor_1 | {<f>f} }"];
+  a[shape=cds xlabel="a"];
+  b[shape=cds xlabel="b"];
+  s[shape=cds xlabel="s"];
+  co[shape=cds xlabel="co"];
+  a -> And_0:i1 /* pin */
+  a -> Xor_1:i1 /* pin */
+  b -> And_0:i2 /* pin */
+  b -> Xor_1:i2 /* pin */
+  And_0:f -> co[label=""]; /* tag3 */
+  Xor_1:f -> s[label=""]; /* tag3 */
+}
