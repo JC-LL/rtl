@@ -1,6 +1,4 @@
-require_relative "../lib/rtl/circuit"
-require_relative "../lib/rtl/library"
-require_relative "../lib/rtl/printer"
+require_relative "../lib/rtl"
 
 include RTL
 

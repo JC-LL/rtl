@@ -60,4 +60,20 @@ module RTL
       super port
     end
   end
+
+  class Add < BinaryGate
+  end
+
+  class Sub < BinaryGate
+  end
+
+  class Mul < BinaryGate
+  end
+
+  class Div < BinaryGate
+  end
+
+  class Rem < BinaryGate
+  end
+
 end

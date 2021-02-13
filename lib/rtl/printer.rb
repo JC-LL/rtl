@@ -15,10 +15,10 @@ module RTL
         dot << "#{comp.iname}[ shape=record; style=filled ; color=#{color} ; label=\"{ #{inputs_dot}| #{comp.name} | #{outputs_dot} }\"];"
       end
       circuit.ports[:in].each do |p|
-        dot << "#{p.name}[shape=cds xlabel=\"#{p.name}\"];"
+        dot << "#{p.name}[shape=cds label=\"#{p.name}\"];"
       end
       circuit.ports[:out].each do |p|
-        dot << "#{p.name}[shape=cds xlabel=\"#{p.name}\"];"
+        dot << "#{p.name}[shape=cds label=\"#{p.name}\"];"
       end
       circuit.signals.each do |sig|
         dot << "#{sig.name}[shape=point ; xlabel=\"#{sig.name}\"]; /* sig */"

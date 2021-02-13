@@ -8,7 +8,9 @@ module RTL
     attr_accessor :father
     attr_accessor :signals
     attr_accessor :properties
+
     @@id=-1
+
     def initialize name=nil
       @name=name
       @iname="#{name}_#{@@id+=1}"
@@ -89,11 +91,19 @@ module RTL
       puts "connecting #{self.name}-> #{port.name}" if $verbose
       @fanout << Wire.new(self,port)
     end
+
+    def type=(t)
+      @properties[:type]=t
+    end
+
+    def type
+      @properties[:type]
+    end
   end
 
   class Sig < Port
-    def initialize dir=:out,name
-      super(dir,name)
+    def initialize name
+      super(:out,name)
     end
   end
 
