@@ -41,6 +41,11 @@ module RTL
       @ports[dir].find{|p| p.name==name}
     end
 
+    def port name
+      all=@ports[:in]+@ports[:out]
+      all.flatten.find{|p| p.name==name}
+    end
+
     def component_named name
       @components.find{|comp| comp.iname==name}
     end
@@ -51,6 +56,14 @@ module RTL
 
     def outputs
       @ports[:out]
+    end
+
+    def wires
+      wires=[]
+      wires << inputs.map{|p| p.fanout}
+      wires << signals.map{|p| p.fanout}
+      wires << components.map{|comp| comp.outputs.map{|o| o.fanout}}
+      wires.flatten
     end
 
     def new_instance

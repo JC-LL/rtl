@@ -3,6 +3,7 @@ require_relative 'code'
 module RTL
 
   class Printer
+
     def print circuit
       dot=Code.new
       dot << "digraph G {"
@@ -63,6 +64,19 @@ module RTL
       dot.indent=0
       dot << "}"
       dot.save_as "#{circuit.name}.dot",verbose=false
+    end
+
+    def print_svg circuit
+      svg=Code.new
+      svg << "{"
+      svg.indent=2
+      svg << "creator: \"RTL::printer version #{version}\","
+      svg << "modules: "
+      svg.indent=4
+      svg.indent=2
+      svg.indent=0
+      svg << "}"
+      svg
     end
   end
 end

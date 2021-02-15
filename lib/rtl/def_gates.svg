@@ -1,0 +1,99 @@
+<defs>
+    <symbol id="and2">
+      <path d="M 10 2
+               l 19 0
+               A 13 13 0 1 1 29 28
+               l -19 0
+               z
+               M 0  6 l 10 0
+               M 0 24 l 10 0
+               M 42 15 L 60 15"
+            fill="transparent"
+            stroke="black"/>
+    </symbol>
+
+    <symbol id="nand2">
+      <path d="M 10 2
+               l 19 0
+               A 13 13 0 1 1 29 28
+               l -19 0
+               z
+               M 0  6 l 10 0
+               M 0 24 l 10 0
+               M 42 15 A 4 4 0 0 0 50 15
+               M 42 15 A 4 4 0 0 1 50 15
+
+               M 50 15 L 60 15"
+            fill="transparent"
+            stroke="black"/>
+    </symbol>
+
+    <symbol id="or2">
+      <path d="M 10 2
+               l 13.484 0
+               A 26 26 0 0 1 46 15
+               A 26 26 0 0 1 23.484 28
+               L 10 28
+               A 26 26 0 0 0 10 2
+               M 0  6 l 11.5 0
+               M 0 24 l 11.5 0
+               M 46 15 L 60 15
+               "
+              stroke-linecap="round"
+            fill="transparent"
+            stroke="black"/>
+    </symbol>
+
+    <symbol id="nor2">
+      <path d="M 10 2
+               l 13.484 0
+               A 26 26 0 0 1 46 15
+               A 26 26 0 0 1 23.484 28
+               L 10 28
+               A 26 26 0 0 0 10 2
+               M 0  6 l 11.5 0
+               M 0 24 l 11.5 0
+               M 54 15 L 60 15
+               M 46 15 A 4 4 0 0 0 54 15
+               M 46 15 A 4 4 0 0 1 54 15
+
+               "
+              stroke-linecap="round"
+            fill="transparent"
+            stroke="black"/>
+    </symbol>
+
+    <symbol id="xor2">
+      <path d="M 10 2
+               l 13.484 0
+               A 26 26 0 0 1 46 15
+               A 26 26 0 0 1 23.484 28
+               L 10 28
+               A 26 26 0 0 0 10 2
+               M 0  6 l 12 0
+               M 0 24 l 12 0
+               M 46 15 L 60 15
+               M 6 2 A 26 26 0 0 1 6 28
+               "
+            stroke-linecap="round"
+            fill="transparent"
+            stroke="black"/>
+    </symbol>
+
+    <symbol id="not">
+      <path d="M 10 2
+               L 32.516 15
+               L 10 28
+               Z
+               M 33 15 A 4 4 0 0 0 41 15
+               M 33 15 A 4 4 0 0 1 41 15
+               M 41 15 L 60 15
+               M 0 15 L 10 15
+               "
+            stroke-linecap="round"
+            fill="transparent"
+            stroke="black"/>
+    </symbol>
+
+
+  </defs>

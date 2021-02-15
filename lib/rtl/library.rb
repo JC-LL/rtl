@@ -30,6 +30,9 @@ module RTL
   class And < BinaryGate
   end
 
+  class Nand < BinaryGate
+  end
+
   class Xor < BinaryGate
   end
 
