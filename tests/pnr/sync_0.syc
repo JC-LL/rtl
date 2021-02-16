@@ -1,0 +1,10 @@
+
+  circuit sync1
+    input a,b,c,d,e,f,g,h,i,j
+    output o1,o2,o3
+    sig s1
+    s1=(a and !b) or (c and d)
+    o1=((e and f) xor s1) and g
+    o2=(e and f) or (s1 and h) and reg(i or j)
+    o3= a? (a and b) : (a or c)
+  end
