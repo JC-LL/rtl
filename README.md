@@ -39,7 +39,7 @@ and_.port("f").connect co
 printer=Printer.new
 printer.print ha
 ```
-<img src="./doc/ha.png" width="100%">.
+<img src="./doc/ha.png" width="50%">.
 
 Now, let's try a Full-adder (made of two Half-adders).
 
