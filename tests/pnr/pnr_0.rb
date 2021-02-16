@@ -3,7 +3,7 @@ require_relative "../../../rtl/lib/rtl.rb"
 
 include RTL
 
-top=Circuit.new("top")
+top=Circuit.new("top_0")
 top.add a=Port.new(:in,"a")
 top.add b=Port.new(:in,"b")
 top.add f=Port.new(:out,"f")

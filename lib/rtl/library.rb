@@ -33,6 +33,9 @@ module RTL
   class Nand < BinaryGate
   end
 
+  class Nor < BinaryGate
+  end
+
   class Xor < BinaryGate
   end
 
@@ -52,10 +55,10 @@ module RTL
       name="Mux"
       super(name)
       @arity=0
-      add Port.new("i0",:in)
-      add Port.new("i1",:in)
-      add Port.new("sel",:in)
-      add Port.new("f",:out)
+      add Port.new(:in,"i0")
+      add Port.new(:in,"i1")
+      super.add Port.new(:in,"sel")
+      super.add Port.new(:out,"f")
     end
 
     def add port

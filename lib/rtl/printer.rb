@@ -12,8 +12,7 @@ module RTL
       circuit.components.each do |comp|
         inputs_dot ="{"+comp.ports[:in].collect{|e| "<#{e.name}>#{e.name}"}.join("|")+"}"
         outputs_dot="{"+comp.ports[:out].collect{|e| "<#{e.name}>#{e.name}"}.join("|")+"}"
-        color="cadetblue"
-        dot << "#{comp.iname}[ shape=record; style=filled ; color=#{color} ; label=\"{ #{inputs_dot}| #{comp.name} | #{outputs_dot} }\"];"
+        dot << "#{comp.iname}[ shape=record; style=filled ; color=#{comp.color} ; label=\"{ #{inputs_dot}| #{comp.name} | #{outputs_dot} }\"];"
       end
       circuit.ports[:in].each do |p|
         dot << "#{p.name}[shape=cds label=\"#{p.name}\"];"

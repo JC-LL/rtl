@@ -15,11 +15,10 @@ module RTL
       edges=gen_pnr_edges(circuit)
       graph=Graph.new(circuit.name,nodes,edges)
       graph.print_info
-      graph.write_file "#{circuit.name}.json"
       drawer=Fdgd.new(graph)
-      drawer.run 10
+      drawer.run 100
       puts "final placement".center(40,'=')
-      graph.write_file "#{graph.id}.sexp"
+      graph.write_file "#{circuit.name}.json"
       gen_svg graph
     end
 
@@ -28,20 +27,22 @@ module RTL
       nodes=[]
       @sym={} # internal references for p&r
       @map={} # link to RTL::Circuit objects
-      circuit.inputs.each do |port|
+      circuit.inputs.each_with_index do |port,idx|
         id=port.object_id.to_s
+        dy=600.0/circuit.inputs.size
         params={"id"    => id,
-                "pos"   => [rand(10),rand(300)],
+                "pos"   => [10,idx*dy],
                 "fixed" => [true,false],
         }
         nodes << node=Node.new(params)
         @sym[id]=node
         @map[node]=port
       end
-      circuit.outputs.each do |port|
+      circuit.outputs.each_with_index do |port,idx|
         id=port.object_id.to_s
+        dy=600.0/circuit.outputs.size
         params={"id"    => id,
-                "pos"   => [rand(300),rand(300)],
+                "pos"   => [500,dy*idx],
                 "fixed" => [true,false],
         }
         nodes << node=Node.new(params)
@@ -51,7 +52,7 @@ module RTL
       circuit.signals.each do |port|
         id=port.object_id.to_s
         params={"id"    => id,
-                "pos"   => [rand(300),rand(300)]
+                "pos"   => [rand(600),rand(600)]
         }
         nodes << node=Node.new(params)
         @sym[id]=node
@@ -149,10 +150,12 @@ module RTL
     end
 
     SVG_ELEMENT={
-        "and" => "and2",
-        "or"  => "or2",
-        "xor" => "xor2",
-        "not" => "not",
+        "and"  => "and2",
+        "nand" => "nand2",
+        "or"   => "or2",
+        "nor"  => "nor2",
+        "xor"  => "xor2",
+        "not"  => "not",
     }
     def gen_svg graph
       svg=Code.new
@@ -161,8 +164,8 @@ module RTL
       svg << "     xmlns:xlink=\"http://www.w3.org/1999/xlink\">"
       svg << IO.read("/home/jcll/JCLL/dev/EDA-ESL/rtl/lib/rtl/def_gates.svg")
       graph.nodes.each do |node|
-        p klass=@map[node].class.to_s.split("::").last.downcase
-        #kind=
+        circuit=@map[node]
+        klass=circuit.class.to_s.split("::").last.downcase
         element=SVG_ELEMENT[klass] || "not"
         pos=node.pos
         x,y=pos.x,pos.y

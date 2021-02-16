@@ -13,6 +13,15 @@ Gem::Specification.new do |s|
                    "lib/rtl/circuit.rb",
                    "lib/rtl/library.rb",
                    "lib/rtl/printer.rb",
+                   #--------- p&r stuff
+                   "lib/rtl/def_gates.svg",
+                   "lib/rtl/placer.rb",
+                   "lib/rtl/json_parser.rb",
+                   "lib/rtl/vector.rb",
+                   "lib/rtl/graph.rb",
+                   "lib/rtl/fdgd.rb",
+                   "lib/rtl/viewer.rb",
+                   "lib/rtl/canvas.rb",
                    "lib/rtl.rb"
                   ]
   s.files += Dir["tests/*/*.rb"]

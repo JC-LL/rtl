@@ -8,7 +8,7 @@ module RTL
     attr_accessor :father
     attr_accessor :signals
     attr_accessor :properties
-
+    attr_accessor :color
     @@id=-1
 
     def initialize name=nil
@@ -18,6 +18,7 @@ module RTL
       @signals=[]
       @components=[]
       @properties={}
+      @color="cadetblue"
     end
 
     def add element
@@ -84,6 +85,15 @@ module RTL
 
     def to_dot
       Printer.new.print self
+    end
+
+    def print_hierarchy level=0
+      @components.each do |comp|
+        shift=level*2
+        header=" "*shift+"[+] "
+        puts header+"#{comp.iname.ljust(15-shift)} : #{comp.name.ljust(10)} [#{comp.class}]"
+        comp.print_hierarchy(level+1)
+      end
     end
   end
 
