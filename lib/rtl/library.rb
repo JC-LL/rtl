@@ -57,8 +57,9 @@ module RTL
       @arity=0
       add Port.new(:in,"i0")
       add Port.new(:in,"i1")
-      super.add Port.new(:in,"sel")
-      super.add Port.new(:out,"f")
+      add Port.new(:in,"sel")
+      @arity=2 #force to 2 !
+      add Port.new(:out,"f")
     end
 
     def add port
